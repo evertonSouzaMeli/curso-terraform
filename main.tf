@@ -15,16 +15,16 @@ provider aws {
 }
 
 resource "aws_instance" "app_server" {
-  ami           = "ami-0557a15b87f6559cf"
+  ami           = "ami-0263e4deb427da90e"
   instance_type = "t2.micro"
-  key_name = "iac-alura"
-  user_data = <<-EOF
-                #!/bin/bash
-                cd /home/ubuntu
-                echo "<h1>Feito com terraforma</h1> > index.html"
-                nohup busybox httpd -f -p 8080 &
-                EOF
+  key_name = "iac-alura" 
+ # user_data = <<-EOF
+ #               #!/bin/bash
+ #               cd /home/ubuntu
+ #               echo “<h1>Mensagem a ser mostrada</h1>” > index.html
+ #               nohup busybox httpd -f -p 8080 &
+ #               EOF
   tags = {
-    Name = "Teste AWS"
+    Name = "Terraform Ansible Python"
   }
 }
